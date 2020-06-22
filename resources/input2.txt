@@ -1,0 +1,5 @@
+ginger_tea
+elaichi_tea
+coffee
+hot_milk
+hot_water
