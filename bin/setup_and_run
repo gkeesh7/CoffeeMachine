@@ -1,0 +1,16 @@
+#!/bin/bash
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        yum install wget
+	wget -c https://storage.googleapis.com/golang/go1.14.4.linux-amd64.tar.gz
+	tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
+	export PATH=$PATH:/usr/local/go/bin
+	export GOPATH=$(dirname $(dirname $(dirname $PWD)))
+	go build ../main.go
+        ./main $1 $2
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	brew install wget
+	brew install go
+	export GOPATH=$(dirname $(dirname $(dirname $PWD)))
+        go build ../main.go
+        ./main $1 $2	
+fi
